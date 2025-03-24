@@ -13,4 +13,17 @@ def main(page: ft.Page):
         )
     )
 
+    def translation(e):
+        if radio_group.value == "El resto es silencio.":
+            quote.value = radio_group.value
+        elif radio_group.value == "השאר זה שקט":
+            quote.value = radio_group.value
+        else:
+            quote.value = radio_group.value
+        page.update()
+ 
+    translation_button = ft.ElevatedButton("Submit", on_click=translation)
+    hamletImage = ft.Image(src="hamlet.jpeg", visible=True, height= 240, width=240)
+    page.add(quote,radio_group,translation_button, hamletImage)
+
 ft.app(target=main,assets_dir="assets")
